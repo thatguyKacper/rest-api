@@ -35,7 +35,7 @@ app.use((req, res) => {
   res.status(404).send('404 not found...');
 });
 
-mongoose.connect('mongodb://localhost:27017/NewWaveDB', { useNewUrlParser: true });
+mongoose.connect('mongodb+srv://Kacper:<password>@cluster0.x3u7u.mongodb.net/<dbname>?retryWrites=true&w=majority/NewWaveDB', { useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.once('open', () => {
@@ -47,8 +47,10 @@ const server = app.listen(process.env.PORT || 8000, () => {
   console.log('Server is running on port: 8000');
 });
 
+module.exports = server;
+
 const io = socket(server);
 
 io.on('connection', (socket) => {
-  console.log('New socket!');
+  console.log('New socket! Its id – ' + socket.id);
 });

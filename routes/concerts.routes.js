@@ -9,5 +9,9 @@ router.post('/concerts', ConcertController.postAll);
 router.put('/concerts/:id', ConcertController.updateOne);
 router.delete('/concerts/:id', ConcertController.deleteOne);
 
+router.get('/concerts/performer/:performer', ConcertController.getPerformer);
+router.get('/concerts/genre/:genre', ConcertController.getGenre);
+router.get('/concerts/price/:price_min/:price_max', ConcertController.getPrice);
+router.get('/concerts/day/:day', ConcertController.getDay);
 
 module.exports = router;
